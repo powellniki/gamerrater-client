@@ -4,17 +4,24 @@ import "./Login.css"
 
 export const Register = () => {
     const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const existDialog = useRef()
     const navigate = useNavigate()
 
+    const handleEmailAndUsername = (evt) => {
+        setEmail(evt.target.value)
+        setUsername(evt.target.value)
+    }
+
     const handleRegister = (e) => {
         e.preventDefault()
         fetch(`http://localhost:8000/register`, {
             method: "POST",
             body: JSON.stringify({
+                username,
                 email,
                 password,
                 first_name: firstName,
@@ -27,7 +34,7 @@ export const Register = () => {
             .then(res => res.json())
             .then(authInfo => {
                 if (authInfo && authInfo.token) {
-                    localStorage.setItem("token", JSON.stringify(authInfo))
+                    localStorage.setItem("rock_token", JSON.stringify(authInfo))
                     navigate("/")
                 } else {
                     existDialog.current.showModal()
@@ -44,7 +51,7 @@ export const Register = () => {
 
             <section>
                 <form className="form--login" onSubmit={handleRegister}>
-                    <h1 className="text-4xl mt-7 mb-3">Gamer Rater</h1>
+                    <h1 className="text-4xl mt-7 mb-3">Rock of Ages</h1>
                     <h2 className="text-xl mb-10">Register new account</h2>
                     <fieldset className="mb-4">
                         <label htmlFor="firstName"> First name </label>
@@ -68,7 +75,7 @@ export const Register = () => {
                         <label htmlFor="inputEmail"> Email address </label>
                         <input type="email" id="inputEmail"
                             value={email}
-                            onChange={evt => setEmail(evt.target.value)}
+                            onChange={handleEmailAndUsername}
                             className="form-control"
                             placeholder="Email address"
                             required autoFocus />
