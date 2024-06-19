@@ -6,13 +6,13 @@ export const NavBar = () => {
     return (
         <ul className="navbar pb-10">
             <li className="navbar__item pl-10">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav Item</NavLink>
+                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav 1</NavLink>
             </li>
             <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav Item</NavLink>
+                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav 2</NavLink>
             </li>
             <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav Item</NavLink>
+                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav 3</NavLink>
             </li>
             {
                 (localStorage.getItem("game_token") !== null) ?
