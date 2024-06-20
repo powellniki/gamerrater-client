@@ -9,7 +9,7 @@ export const NavBar = () => {
                 <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/games"}>Games</NavLink>
             </li>
             <li className="navbar__item">
-                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav 2</NavLink>
+                <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/games/new"}>Add Game</NavLink>
             </li>
             <li className="navbar__item">
                 <NavLink className="text-left underline text-blue-600 hover:text-purple-700" to={"/"}>Nav 3</NavLink>
