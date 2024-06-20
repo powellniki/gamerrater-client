@@ -6,6 +6,7 @@ import { Register } from './auth/Register.jsx'
 import { Home } from "./auth/Home.jsx"
 import { AllGames } from "./AllGames.jsx"
 import { Game } from './Game.jsx'
+import { AddGameForm } from './AddGameForm.jsx'
 
 
 export const ApplicationViews = () => {
@@ -19,6 +20,7 @@ export const ApplicationViews = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/games" element={<AllGames />} />
                 <Route path="/games/:gameId" element={<Game />} />
+                <Route path="/games/new" element={<AddGameForm />} />
             </Route>
         </Routes>
     </BrowserRouter>

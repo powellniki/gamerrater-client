@@ -16,10 +16,6 @@ export const Game = () => {
         const game = await response.json()
         setGameDetails(game)
     }
-
-    const fetchCategoriesByGameId = async = () => {
-
-    }
     
     useEffect(() => {
         fetchGameDetailsFromAPI() 
@@ -34,7 +30,10 @@ export const Game = () => {
                 <div>Number of Players: {gameDetails.number_players}</div>
                 <div>Game Time: {gameDetails.play_time}</div>
                 <div>Age Recommendation: {gameDetails.age_rec}</div>
-                <div>Categories:</div>
+                <div> 
+                    Categories: 
+                        {gameDetails.categories?.map(category => <li key={`category--${category.id}`}>{category.name}</li>)}
+                </div>
             </div>
         </main>
     )
