@@ -29,11 +29,11 @@ export const AllGames = () => {
         <div>
           <button
             onClick={()=> navigate('/games/new')}
-            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+            className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'
           >Add Game</button>
         </div>
         <div>
-          {allGames.map(game => <div key={`game--${game.id}`}><Link to={`/games/${game.id}`}>{game.title}</Link></div>)}
+          {allGames.map(game => <div className='text-gray-800 hover:text-purple-500' key={`game--${game.id}`}><Link to={`/games/${game.id}`}>{game.title}</Link></div>)}
         </div>
       </main>
   )
