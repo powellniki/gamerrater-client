@@ -16,14 +16,6 @@ export const AddGameForm = () => {
     const [game, setGame] = useState(initialGameState)
     const navigate = useNavigate()
 
-    // const [title, setTitle] = useState()
-    // const [description, setDescription] = useState()
-    // const [designer, setDesigner] = useState()
-    // const [year, setYear] = useState()
-    // const [players, setPlayers] = useState()
-    // const [playTime, setPlayTime] = useState()
-    // const [ageRec, setAgeRec] = useState()
-
     const handleRegisterNewGame = async (e) => {
         e.preventDefault()
 
