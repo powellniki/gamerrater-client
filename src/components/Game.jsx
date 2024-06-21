@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom"
 
 export const Game = () => {
     const [gameDetails, setGameDetails] = useState({})
+    const [gameReviews, setGameReviews] = useState([])
     const navigate = useNavigate()
     const {gameId} = useParams()
 
@@ -17,9 +18,20 @@ export const Game = () => {
         const game = await response.json()
         setGameDetails(game)
     }
+    const fetchReviewsByGameId = async () => {
+        const response = await fetch(`http://localhost:8000/reviews?game=${gameId}`,
+            {
+                headers: {
+                  Authorization: `Token ${JSON.parse(localStorage.getItem('rock_token')).token}`
+                }
+            })
+            const reviews = await response.json()
+            setGameReviews(reviews)
+    }
     
     useEffect(() => {
-        fetchGameDetailsFromAPI() 
+        fetchGameDetailsFromAPI()
+        fetchReviewsByGameId()
     },[])
 
     return (
@@ -37,6 +49,15 @@ export const Game = () => {
                 </div>
                 <div>
                     <button onClick={()=> navigate(`/game/${gameId}/review`)} className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded'>REVIEW GAME</button>
+                </div>
+                <div>
+                {
+                    Array.isArray(gameReviews) && gameReviews.length === 1 
+                        ? gameReviews[0].review 
+                        : Array.isArray(gameReviews) 
+                        ? gameReviews.map(game => <div key={game.id}>{game.review}</div>) 
+                        : gameReviews.review
+                    }
                 </div>
             </div>
         </main>
