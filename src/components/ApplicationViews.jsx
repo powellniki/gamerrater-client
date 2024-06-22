@@ -8,6 +8,7 @@ import { AllGames } from "./AllGames.jsx"
 import { Game } from './Game.jsx'
 import { AddGameForm } from './AddGameForm.jsx'
 import { ReviewGame } from './ReviewForm.jsx'
+import { EditGameForm } from './EditGameForm.jsx'
 
 
 export const ApplicationViews = () => {
@@ -23,6 +24,7 @@ export const ApplicationViews = () => {
                 <Route path="/games/:gameId" element={<Game />} />
                 <Route path="/games/new" element={<AddGameForm />} />
                 <Route path="/game/:gameId/review" element={<ReviewGame />} />
+                <Route path="/game/:gameId/edit" element={<EditGameForm />} />
             </Route>
         </Routes>
     </BrowserRouter>
