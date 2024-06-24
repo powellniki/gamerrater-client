@@ -64,6 +64,7 @@ export const Game = () => {
         <main className='text-slate-900 pl-10 pr-10'>
             <div>
                 <h3 className='text-2xl'>{gameDetails.title}</h3>
+                <div>Average Rating: {gameDetails.average_rating}</div>
                 <div>Designer: {gameDetails.designer}</div>
                 <div>Release: {gameDetails.release_year}</div>
                 <div>Number of Players: {gameDetails.number_players}</div>
