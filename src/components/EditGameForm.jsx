@@ -44,7 +44,7 @@ export const EditGameForm = () => {
                 },
                 body: JSON.stringify(game)
             });
-            navigate('/games');
+            navigate(`/games/${gameId}`);
         } catch (error) {
             console.error('Error updating game:', error);
         }
